@@ -2,8 +2,8 @@ from typing import Union
 
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-from AloneMusic import app
 import config
+from AloneMusic import app
 
 
 def help_pannel(_, START: Union[bool, int] = None):
@@ -31,16 +31,10 @@ def help_pannel(_, START: Union[bool, int] = None):
             ],
             [
                 InlineKeyboardButton(
-                    text="✚ ᴋᴀʏɴᴀᴋ ᴋᴏᴅᴜ ✚",
-                    url="https://www.youtube.com/@EpikTv87"
+                    text="✚ ᴋᴀʏɴᴀᴋ ᴋᴏᴅᴜ ✚", url="https://www.youtube.com/@EpikTv87"
                 ),
             ],
-            [
-                InlineKeyboardButton(
-                    text=_["CLOSE_BUTTON"],
-                    callback_data="close"
-                )
-            ],
+            [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")],
         ]
     )
     return upl
@@ -53,15 +47,11 @@ def private_help_panel(_):
                 text=_["S_B_4"],
                 url=f"https://t.me/{app.username}?start=help",
             ),
-            InlineKeyboardButton(
-                text=_["S_B_5"],
-                user_id=config.OWNER_ID
-            ),
+            InlineKeyboardButton(text=_["S_B_5"], user_id=config.OWNER_ID),
         ],
         [
             InlineKeyboardButton(
-                text="✚ ᴋᴀʏɴᴀᴋ ᴋᴏᴅᴜ ✚",
-                url="https://www.youtube.com/@EpikTv87"
+                text="✚ ᴋᴀʏɴᴀᴋ ᴋᴏᴅᴜ ✚", url="https://www.youtube.com/@EpikTv87"
             ),
         ],
     ]
