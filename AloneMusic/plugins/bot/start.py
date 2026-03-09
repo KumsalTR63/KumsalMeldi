@@ -1,27 +1,15 @@
-import time
 
 from pyrogram import filters
 from pyrogram.enums import ChatType
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
-from youtubesearchpython.__future__ import VideosSearch
+from pyrogram.types import InlineKeyboardMarkup, Message
 
 import config
 from AloneMusic import app
-from AloneMusic.misc import _boot_
-from AloneMusic.plugins.sudo.sudoers import sudoers_list
-from AloneMusic.utils.database import (
-    add_served_chat,
-    add_served_user,
-    blacklisted_chats,
-    get_lang,
-    is_banned_user,
-    is_on_off,
-)
-from AloneMusic.utils.decorators.language import LanguageStart
-from AloneMusic.utils.formatters import get_readable_time
-from AloneMusic.utils.inline import help_pannel, private_panel, start_panel
-from config import BANNED_USERS
+from AloneMusic.utils.database import (add_served_chat, blacklisted_chats, get_lang,
+                                       is_banned_user)
+from AloneMusic.utils.inline import start_panel
 from strings import get_string
+
 
 @app.on_message(filters.new_chat_members, group=-1)
 async def welcome(client, message: Message):
