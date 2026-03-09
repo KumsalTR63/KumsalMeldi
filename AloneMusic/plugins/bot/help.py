@@ -32,8 +32,7 @@ async def helper_private(
         keyboard = help_pannel(_, True)
 
         await update.edit_message_text(
-            _["help_1"].format(SUPPORT_CHAT),
-            reply_markup=keyboard
+            _["help_1"].format(SUPPORT_CHAT), reply_markup=keyboard
         )
 
     else:
@@ -59,10 +58,7 @@ async def helper_private(
 async def help_com_group(client, message: Message, _):
     keyboard = private_help_panel(_)
 
-    await message.reply_text(
-        _["help_2"],
-        reply_markup=InlineKeyboardMarkup(keyboard)
-    )
+    await message.reply_text(_["help_2"], reply_markup=InlineKeyboardMarkup(keyboard))
 
 
 @app.on_callback_query(filters.regex("help_callback") & ~BANNED_USERS)
