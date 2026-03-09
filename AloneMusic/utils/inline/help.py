@@ -63,6 +63,9 @@ def private_help_panel(_):
                 text=_["S_B_4"],
                 url=f"https://t.me/{app.username}?start=help",
             ),
+            InlineKeyboardButton(text=_["S_B_5"], user_id=config.OWNER_ID),
+           ],
+           [
             InlineKeyboardButton(text="✚ ᴋᴀʏɴᴀᴋ ᴋᴏᴅᴜ ✚", url="https://www.youtube.com/@EpikTv87"),
         ],
     ]
