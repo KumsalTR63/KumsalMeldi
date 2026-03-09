@@ -179,9 +179,9 @@ ping_2 : "🏓 Pong: <code>{0}ms</code>\n\n<b><u>{1} Sistem istatistikleri:</u><
 CLOSE_BUTTON : "Kapat"
 BACK_BUTTON : "Geri"
 
-S_B_1 : "Beni Ekle"
+S_B_1 : "➕ ʙᴇɴɪ ᴇᴋʟᴇ ➕"
 S_B_2 : "📢 ᴅᴜʏᴜʀᴜ"
-S_B_3 : "➕ ʙᴇɴɪ ɢʀᴜʙᴀ ᴇᴋʟᴇ ➕"
+S_B_3 : "➕ ʙᴇɴɪ ᴇᴋʟᴇ ➕"
 S_B_4 : "Yardım"
 S_B_5 : "👩‍💻 sᴀʜɪᴘ"
 S_B_6 : "Kanal"
