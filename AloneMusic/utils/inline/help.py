@@ -2,15 +2,16 @@ from typing import Union
 
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-from AloneMusic import app
 import config
+from AloneMusic import app
+
 
 def help_pannel(_, START: Union[bool, int] = None):
-    first = [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data=f"close")]
+    first = [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")]
     second = [
         InlineKeyboardButton(
             text=_["BACK_BUTTON"],
-            callback_data=f"settingsback_helper",
+            callback_data="settingsback_helper",
         ),
     ]
     mark = second if START else first
@@ -33,8 +34,10 @@ def help_pannel(_, START: Union[bool, int] = None):
                 ),
             ],
             [
-                 InlineKeyboardButton(text=_["S_B_2"], url=config.SUPPORT_CHAT),
-                 InlineKeyboardButton(text="✚  ᴋᴀʏɴᴀᴋ ᴋᴏᴅᴜ  ", url="https://www.youtube.com/@EpikTv87"),
+                InlineKeyboardButton(text=_["S_B_2"], url=config.SUPPORT_CHAT),
+                InlineKeyboardButton(
+                    text="✚  ᴋᴀʏɴᴀᴋ ᴋᴏᴅᴜ  ", url="https://www.youtube.com/@EpikTv87"
+                ),
             ],
             mark,
         ]
@@ -50,9 +53,11 @@ def private_help_panel(_):
                 url=f"https://t.me/{app.username}?start=help",
             ),
             InlineKeyboardButton(text=_["S_B_5"], user_id=config.OWNER_ID),
-           ],
-           [
-            InlineKeyboardButton(text="✚ ᴋᴀʏɴᴀᴋ ᴋᴏᴅᴜ ✚", url="https://www.youtube.com/@EpikTv87"),
+        ],
+        [
+            InlineKeyboardButton(
+                text="✚ ᴋᴀʏɴᴀᴋ ᴋᴏᴅᴜ ✚", url="https://www.youtube.com/@EpikTv87"
+            ),
         ],
     ]
     return buttons
