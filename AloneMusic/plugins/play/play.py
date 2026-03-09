@@ -31,7 +31,7 @@ from AloneMusic.utils.stream.stream import stream
 from config import BANNED_USERS, lyrical
 
 EMOJII = [
-    "🔥",
+    "🪩",
     "💋",
     "🥺",
     "😒",
@@ -61,8 +61,8 @@ async def delete_after_delay(msg):
 @app.on_message(
     filters.command(
         [
-            "play",
-            "vplay",
+            "play", "oynat",
+            "vplay", "voynat",
             "cplay",
             "cvplay",
             "playforce",
