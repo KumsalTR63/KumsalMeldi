@@ -1,8 +1,8 @@
 import math
 
 from pyrogram.types import InlineKeyboardButton
-
 from AloneMusic.utils.formatters import time_to_seconds
+from AloneMusic import app
 
 
 def track_markup(_, videoid, user_id, channel, fplay):
@@ -24,8 +24,10 @@ def track_markup(_, videoid, user_id, channel, fplay):
 def stream_markup_timer(_, chat_id, played, dur):
     played_sec = time_to_seconds(played)
     duration_sec = time_to_seconds(dur)
+
     percentage = (played_sec / duration_sec) * 100
     umm = math.floor(percentage)
+
     if 0 < umm <= 10:
         bar = "◉—————————"
     elif 10 < umm < 20:
@@ -46,20 +48,23 @@ def stream_markup_timer(_, chat_id, played, dur):
         bar = "————————◉—"
     else:
         bar = "—————————◉"
+
     buttons = [
-       [
+        [
             InlineKeyboardButton(
                 text=f"{played} {bar} {dur}",
                 callback_data="GetTimer",
             )
-        ], 
+        ],
         [
             InlineKeyboardButton(text="▷", callback_data=f"ADMIN Resume|{chat_id}"),
             InlineKeyboardButton(text="II", callback_data=f"ADMIN Pause|{chat_id}"),
             InlineKeyboardButton(text="‣‣I", callback_data=f"ADMIN Skip|{chat_id}"),
             InlineKeyboardButton(text="▢", callback_data=f"ADMIN Stop|{chat_id}"),
         ],
-        [InlineKeyboardButton(text=_["CLOSE_BUTTONS"], callback_data="close")],
+        [
+            InlineKeyboardButton(text=_["CLOSE_BUTTONS"], callback_data="close")
+        ],
     ]
     return buttons
 
@@ -73,9 +78,14 @@ def stream_markup(_, chat_id):
             InlineKeyboardButton(text="▢", callback_data=f"ADMIN Stop|{chat_id}"),
         ],
         [
-          InlineKeyboardButton(
+            InlineKeyboardButton(
                 text=_["S_B_3"],
-                url=f"https://t.me/{app.username}?startgroup=true"),            InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close"),
+                url=f"https://t.me/{app.username}?startgroup=true"
+            ),
+            InlineKeyboardButton(
+                text=_["CLOSE_BUTTON"],
+                callback_data="close"
+            ),
         ],
     ]
     return buttons
@@ -123,6 +133,7 @@ def livestream_markup(_, videoid, user_id, mode, channel, fplay):
 
 def slider_markup(_, videoid, user_id, query, query_type, channel, fplay):
     query = f"{query[:20]}"
+
     buttons = [
         [
             InlineKeyboardButton(
@@ -167,7 +178,10 @@ def stream_markup2(_, chat_id):
             InlineKeyboardButton(text="▢", callback_data=f"ADMIN Stop|{chat_id}"),
         ],
         [
-            InlineKeyboardButton(text=_["CLOSEMENU_BUTTON"], callback_data="close"),
+            InlineKeyboardButton(
+                text=_["CLOSEMENU_BUTTON"],
+                callback_data="close"
+            ),
         ],
     ]
     return buttons
