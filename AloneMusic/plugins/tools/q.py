@@ -1,4 +1,5 @@
 from io import BytesIO
+
 from httpx import AsyncClient, Timeout
 from pyrogram import filters
 from pyrogram.types import Message
@@ -22,6 +23,7 @@ class QuotlyException(Exception):
 
 # Buradan sonrası fonksiyonlar (değişmedi, sadece mesajlar çevrildi)
 
+
 @app.on_message(filters.command(["q", "r"]) & filters.reply)
 async def msg_quotly_cmd(self: app, ctx: Message):
     ww = await ctx.reply_text("⏳ Lütfen bekleyin...")
@@ -33,7 +35,9 @@ async def msg_quotly_cmd(self: app, ctx: Message):
         if check_arg[0]:
             if check_arg[1] < 2 or check_arg[1] > 10:
                 await ww.delete()
-                return await ctx.reply_msg("Geçersiz aralık! (2-10 arasında olmalı)", del_in=6)
+                return await ctx.reply_msg(
+                    "Geçersiz aralık! (2-10 arasında olmalı)", del_in=6
+                )
             try:
                 messages = [
                     i
