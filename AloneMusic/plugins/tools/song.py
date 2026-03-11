@@ -1,10 +1,11 @@
-import os
 import asyncio
+import os
+
+import httpx  # HTTP istekleri için
+import yt_dlp
 from pyrogram import filters
 from pyrogram.types import Message
-import yt_dlp
 from yt_dlp.utils import DownloadError
-import httpx  # HTTP istekleri için
 
 from AloneMusic import app  # @app dekoratörleri için
 
@@ -17,24 +18,31 @@ os.makedirs(DOWNLOAD_PATH, exist_ok=True)  # İndirilen dosyaların kaydedilece�
 
 # ----------------- COOKIE DOSYASINI İNDİRME FONKSİYONU -----------------
 
+
 async def download_cookie():
     """Cookie dosyasını GitHub repo URL'sinden indir"""
     async with httpx.AsyncClient() as client:
         response = await client.get(COOKIE_URL)
         if response.status_code == 200:
             # Cookie dosyasını kaydet
-            with open(COOKIE_FILE, 'wb') as f:
+            with open(COOKIE_FILE, "wb") as f:
                 f.write(response.content)
         else:
-            raise Exception(f"Cookie dosyası indirilemedi. HTTP Durumu: {response.status_code}")
+            raise Exception(
+                f"Cookie dosyası indirilemedi. HTTP Durumu: {response.status_code}"
+            )
+
 
 # ----------------- ARAMA VE GÖNDERME FONKSİYONU -----------------
+
 
 async def search_and_send(message: Message, search_type: str = "music"):
     """Arama ve gönderme işlemi"""
     # Cookie dosyasının olup olmadığını kontrol et
     if not os.path.exists(COOKIE_FILE):
-        await message.reply_text("❌ Cookie dosyası bulunamadı. Şu anda arama işlemi yapılamaz.")
+        await message.reply_text(
+            "❌ Cookie dosyası bulunamadı. Şu anda arama işlemi yapılamaz."
+        )
         return
 
     # Komut kontrolü
@@ -87,7 +95,9 @@ async def search_and_send(message: Message, search_type: str = "music"):
 
         await status_msg.edit_text(f"⬇️  `{title}` ɪɴᴅɪʀɪʟɪʏᴏʀ...")
         loop = asyncio.get_event_loop()
-        await loop.run_in_executor(None, lambda: yt_dlp.YoutubeDL(ydl_opts_download).download([url]))
+        await loop.run_in_executor(
+            None, lambda: yt_dlp.YoutubeDL(ydl_opts_download).download([url])
+        )
 
         # ----------------- CHAT'E GÖNDER -----------------
         await status_msg.edit_text(f"✅  `{title}` ɪɴᴅɪʀɪʟɪʏᴏʀ, ɢöɴᴅᴇʀɪʟɪʏᴏʀ...")
@@ -109,11 +119,14 @@ async def search_and_send(message: Message, search_type: str = "music"):
     except Exception as e:
         await status_msg.edit_text(f"❌ ʜᴀᴛᴀ ᴏʟᴜşᴛᴜ: {e}")
 
+
 # ----------------- KOMUT BAĞLAMA -----------------
+
 
 @app.on_message(filters.command("bul") & filters.private)
 async def music_search(client, message: Message):
     await search_and_send(message, search_type="music")  # Müzik araması
+
 
 @app.on_message(filters.command("vbul") & filters.private)
 async def video_search(client, message: Message):

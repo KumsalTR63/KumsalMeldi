@@ -1,13 +1,16 @@
 import asyncio
 import random
 from datetime import datetime, timedelta
+
 from pyrogram import filters
 from pyrogram.types import Message
+
 from AloneMusic import app  # Assuming this is the bot's app instance
-from AloneMusic.core.mongo import mongodb   # ✅ MongoDB connection
+from AloneMusic.core.mongo import mongodb  # ✅ MongoDB connection
 
 db = mongodb.games  # Accessing the 'games' collection from MongoDB
 initial_balance = 25000  # Initial balance for users
+
 
 # 🔹 Retrieve user balance
 async def get_balance(user_id: int) -> int:
@@ -15,6 +18,7 @@ async def get_balance(user_id: int) -> int:
     if user:
         return user.get("balance", initial_balance)
     return initial_balance
+
 
 # 🔹 Update user balance
 async def update_balance(user_id: int, amount: int):
@@ -26,6 +30,7 @@ async def update_balance(user_id: int, amount: int):
         upsert=True,
     )
     return new_balance
+
 
 # 🎰 Slot game
 @app.on_message(filters.command("cash") & filters.group)
@@ -55,6 +60,7 @@ async def play_slot(_, message: Message):
     await message.reply(
         f"{win_amount} TL {result}!\n💰 Güncel bakiyeniz: {new_balance} TL"
     )
+
 
 # 🏀 Basketball game
 @app.on_message(filters.command("bcash") & filters.group)
@@ -90,6 +96,7 @@ async def play_basket(_, message: Message):
     new_balance = await update_balance(user_id, win_amount)
     await message.reply(f"{text}\n💰 Güncel bakiyeniz: {new_balance} TL")
 
+
 # ⚽ Football game
 @app.on_message(filters.command("fcash") & filters.group)
 async def play_football(_, message: Message):
@@ -124,12 +131,14 @@ async def play_football(_, message: Message):
     new_balance = await update_balance(user_id, win_amount)
     await message.reply(f"{text}\n💰 Güncel bakiyeniz: {new_balance} TL")
 
+
 # 💰 Check balance
 @app.on_message(filters.command("bakiye"))
 async def check_balance(_, message: Message):
     user_id = message.from_user.id
     balance = await get_balance(user_id)
     await message.reply(f"Güncel bakiyeniz: {balance} TL 💰")
+
 
 # 🎁 Daily bonus
 @app.on_message(filters.command(["gunluk", "günlük"]))
@@ -150,7 +159,10 @@ async def daily_bonus(_, message: Message):
     )
 
     balance = await get_balance(user_id)
-    await message.reply(f"🎁 Günlük bonus aldınız: 50.000 TL\n💰 Güncel bakiyeniz: {balance} TL")
+    await message.reply(
+        f"🎁 Günlük bonus aldınız: 50.000 TL\n💰 Güncel bakiyeniz: {balance} TL"
+    )
+
 
 # 🏆 Rich List
 @app.on_message(filters.command("zenginler"))
