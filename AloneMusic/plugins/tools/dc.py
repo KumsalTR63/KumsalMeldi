@@ -1,6 +1,8 @@
 import random
+
 from pyrogram import filters
 from pyrogram.types import Message
+
 from AloneMusic import app
 
 # Doğruluk soruları
@@ -154,6 +156,7 @@ cesaret_listesi = [
     "Telefonundaki en son selfie’yi paylaş!",
     "Grup içinden rastgele birine şaka yap!",
 ]
+
 
 @app.on_message(filters.command(["d", "c"]))
 async def dogruluk_cesaret(c: app, m: Message):
