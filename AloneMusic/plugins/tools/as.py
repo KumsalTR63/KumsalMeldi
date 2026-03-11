@@ -6,10 +6,11 @@
 # ===========================================
 
 import random
+
 from pyrogram import filters
+
 from AloneMusic import app
 from AloneMusic.core.mongo import mongodb
-from config import MONGO_DB_URI
 
 # MongoDB koleksiyonları
 lovebirds_db = mongodb.lovebirds
@@ -32,7 +33,7 @@ GIFTS = {
     "🕊️": {"name": "Güvercin", "cost": 22, "emoji": "🕊️"},
     "🏰": {"name": "Şato", "cost": 80, "emoji": "🏰"},
     "🎂": {"name": "Pasta", "cost": 28, "emoji": "🎂"},
-    "🍓": {"name": "Çilek", "cost": 12, "emoji": "🍓"}
+    "🍓": {"name": "Çilek", "cost": 12, "emoji": "🍓"},
 }
 
 
@@ -52,7 +53,7 @@ async def get_user_data(user_id):
             "coins": 50,  # Başlangıç bonusu
             "total_gifts_received": 0,
             "total_gifts_sent": 0,
-            "created_at": "2025"
+            "created_at": "2025",
         }
         await users_collection.insert_one(new_user)
         return new_user
@@ -66,9 +67,7 @@ async def update_user_coins(user_id, amount):
         return
 
     await users_collection.update_one(
-        {"user_id": user_id},
-        {"$inc": {"coins": amount}},
-        upsert=True
+        {"user_id": user_id}, {"$inc": {"coins": amount}}, upsert=True
     )
 
 
@@ -80,13 +79,10 @@ def get_user_info(message):
 
     user_id = message.from_user.id
 
-    username = (
-        message.from_user.username
-        or message.from_user.first_name
-        or "Kullanıcı"
-    )
+    username = message.from_user.username or message.from_user.first_name or "Kullanıcı"
 
     return user_id, username
+
 
 # ───────────────────────────────
 # 💰 Bakiye Komutu
@@ -136,7 +132,9 @@ async def send_gift(_, message):
     try:
         parts = message.text.split(" ")
         if len(parts) < 3:
-            return await message.reply_text("❌ <b>Kullanım:</b> /hediyegonder @kullanici 🌹")
+            return await message.reply_text(
+                "❌ <b>Kullanım:</b> /hediyegonder @kullanici 🌹"
+            )
 
         hedef = parts[1].replace("@", "")
         gift_emoji = parts[2]
@@ -145,17 +143,20 @@ async def send_gift(_, message):
         sender_data = await get_user_data(sender_id)
 
         if gift_emoji not in GIFTS:
-            return await message.reply_text("❌ <b>Geçersiz hediye!</b> Tüm hediyeleri görmek için /hediyeler yaz.")
+            return await message.reply_text(
+                "❌ <b>Geçersiz hediye!</b> Tüm hediyeleri görmek için /hediyeler yaz."
+            )
 
         gift_info = GIFTS[gift_emoji]
         cost = gift_info["cost"]
 
         if sender_data["coins"] < cost:
-            return await message.reply_text(f"😢 <b>Yetersiz coin!</b>\n💰 Gerekli: {cost}, Mevcut: {sender_data['coins']}")
+            return await message.reply_text(
+                f"😢 <b>Yetersiz coin!</b>\n💰 Gerekli: {cost}, Mevcut: {sender_data['coins']}"
+            )
 
         await users_collection.update_one(
-            {"user_id": sender_id},
-            {"$inc": {"coins": -cost, "total_gifts_sent": 1}}
+            {"user_id": sender_id}, {"$inc": {"coins": -cost, "total_gifts_sent": 1}}
         )
 
         gift_record = {
@@ -167,7 +168,7 @@ async def send_gift(_, message):
             "gift_emoji": gift_emoji,
             "cost": cost,
             "timestamp": "2025",
-            "claimed": False
+            "claimed": False,
         }
 
         await gifts_collection.insert_one(gift_record)
@@ -202,7 +203,9 @@ async def love_story(_, message):
     try:
         parts = message.text.split(" ", 2)
         if len(parts) < 3:
-            return await message.reply_text("❌ <b>Kullanım:</b> /hikaye İsim1 İsim2\n💡 <b>Örnek:</b> /hikaye Ali Ayşe")
+            return await message.reply_text(
+                "❌ <b>Kullanım:</b> /hikaye İsim1 İsim2\n💡 <b>Örnek:</b> /hikaye Ali Ayşe"
+            )
 
         isim1, isim2 = parts[1], parts[2]
 
@@ -211,7 +214,7 @@ async def love_story(_, message):
             f"<b>{isim1}</b> yağmur altında yürürken 🌧️, <b>{isim2}</b> şemsiyesini uzattı ☂️. O anda aşk filizlendi 🌸",
             f"<b>{isim1}</b> ve <b>{isim2}</b> aynı kitabı almak için uzandı 📚. Parmakları değdi, kalpleri ısındı 💫💕",
             f"Bir konser sırasında 🎵, <b>{isim1}</b> ve <b>{isim2}</b> aynı şarkıyı söyledi. Kalpleri aynı ritimde attı 🎶❤️",
-            f"<b>{isim1}</b> parkta kuşlara yem veriyordu 🐦, <b>{isim2}</b> de katıldı. O an sessizlik bile güzelleşti 💕"
+            f"<b>{isim1}</b> parkta kuşlara yem veriyordu 🐦, <b>{isim2}</b> de katıldı. O an sessizlik bile güzelleşti 💕",
         ]
 
         sonlar = [
@@ -221,7 +224,13 @@ async def love_story(_, message):
         ]
 
         hikaye = random.choice(hikayeler) + random.choice(sonlar)
-        baslik = random.choice(["💕 <b>Aşk Hikayesi</b> 💕", "🌸 <b>Romantik Hikaye</b> 🌸", "❤️ <b>Aşk Masalı</b> ❤️"])
+        baslik = random.choice(
+            [
+                "💕 <b>Aşk Hikayesi</b> 💕",
+                "🌸 <b>Romantik Hikaye</b> 🌸",
+                "❤️ <b>Aşk Masalı</b> ❤️",
+            ]
+        )
 
         await message.reply_text(f"{baslik}\n\n{hikaye}")
 
@@ -240,10 +249,14 @@ async def my_gifts(_, message):
     uid, username = get_user_info(message)
     await get_user_data(uid)
 
-    gifts_received = await gifts_collection.find({"receiver_id": uid}).to_list(length=10)
+    gifts_received = await gifts_collection.find({"receiver_id": uid}).to_list(
+        length=10
+    )
 
     if not gifts_received:
-        await message.reply_text(f"📭 <b>{username}</b>, henüz hiç hediye almadın!\n💡 Arkadaşlarından /hediyegonder ile iste 🎀")
+        await message.reply_text(
+            f"📭 <b>{username}</b>, henüz hiç hediye almadın!\n💡 Arkadaşlarından /hediyegonder ile iste 🎀"
+        )
         return
 
     text = f"🎁 <b>{username}’in Hediyeleri:</b>\n\n"
@@ -262,7 +275,9 @@ async def my_gifts(_, message):
 @app.on_message(filters.command(["liderlik", "zirve"], prefixes=["/", "!", "."]))
 async def leaderboard(_, message):
     try:
-        top_users = await users_collection.find().sort("coins", -1).limit(10).to_list(length=10)
+        top_users = (
+            await users_collection.find().sort("coins", -1).limit(10).to_list(length=10)
+        )
         if not top_users:
             return await message.reply_text("📊 Henüz hiç kullanıcı yok!")
 
@@ -271,7 +286,9 @@ async def leaderboard(_, message):
 
         for i, user in enumerate(top_users):
             madalya = madalyalar[i] if i < len(madalyalar) else "🏅"
-            text += f"{madalya} <b>Kullanıcı {user['user_id']}</b> — {user['coins']} coin\n"
+            text += (
+                f"{madalya} <b>Kullanıcı {user['user_id']}</b> — {user['coins']} coin\n"
+            )
 
         await message.reply_text(text)
     except Exception as e:
