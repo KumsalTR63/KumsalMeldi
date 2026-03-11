@@ -11,12 +11,12 @@ def start_panel(_):
             InlineKeyboardButton(
                 text=_["S_B_1"],
                 url=f"https://t.me/{app.username}?startgroup=true",
-                style=enums.ButtonStyle.PRIMARY
+                style=enums.ButtonStyle.PRIMARY,
             ),
             InlineKeyboardButton(
                 text=_["S_B_2"],
                 url=config.SUPPORT_CHAT,
-                style=enums.ButtonStyle.SUCCESS
+                style=enums.ButtonStyle.SUCCESS,
             ),
         ],
     ]
@@ -29,38 +29,38 @@ def private_panel(_):
             InlineKeyboardButton(
                 text=_["S_B_3"],
                 url=f"https://t.me/{app.username}?startgroup=true",
-                style=enums.ButtonStyle.PRIMARY
+                style=enums.ButtonStyle.PRIMARY,
             )
         ],
         [
             InlineKeyboardButton(
                 text=_["S_B_4"],
                 callback_data="settings_back_helper",
-                style=enums.ButtonStyle.SECONDARY
+                style=enums.ButtonStyle.SECONDARY,
             )
         ],
         [
             InlineKeyboardButton(
                 text=_["S_B_5"],
                 user_id=config.OWNER_ID,
-                style=enums.ButtonStyle.SUCCESS
+                style=enums.ButtonStyle.SUCCESS,
             ),
             InlineKeyboardButton(
                 text=_["S_B_2"],
                 url=config.SUPPORT_CHAT,
-                style=enums.ButtonStyle.SUCCESS
+                style=enums.ButtonStyle.SUCCESS,
             ),
         ],
         [
             InlineKeyboardButton(
                 text=_["S_B_6"],
                 url=config.SUPPORT_CHANNEL,
-                style=enums.ButtonStyle.PRIMARY
+                style=enums.ButtonStyle.PRIMARY,
             ),
             InlineKeyboardButton(
                 text=_["S_B_7"],
                 url=config.UPSTREAM_REPO,
-                style=enums.ButtonStyle.DANGER
+                style=enums.ButtonStyle.DANGER,
             ),
         ],
     ]
