@@ -27,8 +27,12 @@ def track_markup(_, videoid, user_id, channel, fplay):
 
 
 def stream_markup_timer(_, chat_id, played, dur):
-    played_sec = time_to_seconds(played)
-    duration_sec = time_to_seconds(dur)
+    played_sec = time_to_seconds(played) or 0
+    duration_sec = time_to_seconds(dur) or 1
+
+    if duration_sec == 0:
+        duration_sec = 1
+
     percentage = (played_sec / duration_sec) * 100
     umm = math.floor(percentage)
 
