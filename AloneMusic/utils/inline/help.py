@@ -1,16 +1,9 @@
 #
-# Copyright (C) 2021-2022 by TheAloneteam@Github, < https://github.com/TheAloneTeam >.
+# Copyright (C) 2021-2022 by TheAloneteam@Github
 #
-# This file is part of < https://github.com/TheAloneTeam/AloneMusic > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TheAloneTeam/AloneMusic/blob/master/LICENSE >
-#
-# All rights reserved.
 
 from typing import Union
-
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-
 from AloneMusic import app
 
 
@@ -22,7 +15,9 @@ def help_pannel(_, START: Union[bool, int] = None):
             callback_data="settingsback_helper",
         ),
     ]
+
     mark = second if START else first
+
     upl = InlineKeyboardMarkup(
         [
             [
@@ -65,6 +60,26 @@ def help_pannel(_, START: Union[bool, int] = None):
                 InlineKeyboardButton(
                     text=_["H_B_9"],
                     callback_data="help_callback hb9",
+                ),
+            ],
+            [
+                InlineKeyboardButton(
+                    text=_["H_B_10"],
+                    callback_data="help_callback hb10",
+                ),
+                InlineKeyboardButton(
+                    text=_["H_B_11"],
+                    callback_data="help_callback hb11",
+                ),
+                InlineKeyboardButton(
+                    text=_["H_B_12"],
+                    callback_data="help_callback hb12",
+                ),
+            ],
+            [
+                InlineKeyboardButton(
+                    text=_["H_B_13"],
+                    callback_data="help_callback hb13",
                 ),
             ],
             mark,
