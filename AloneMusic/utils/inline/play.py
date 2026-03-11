@@ -1,8 +1,9 @@
 import math
 
 from pyrogram.types import InlineKeyboardButton
-from AloneMusic.utils.formatters import time_to_seconds
+
 from AloneMusic import app
+from AloneMusic.utils.formatters import time_to_seconds
 
 
 def track_markup(_, videoid, user_id, channel, fplay):
@@ -63,11 +64,14 @@ def stream_markup_timer(_, chat_id, played, dur):
             InlineKeyboardButton(text="⏹", callback_data=f"ADMIN Stop|{chat_id}"),
         ],
         [
-            InlineKeyboardButton(text="➕ Gruba Ekle", url=f"https://t.me/{app.username}?startgroup=true"),
+            InlineKeyboardButton(
+                text="➕ Gruba Ekle", url=f"https://t.me/{app.username}?startgroup=true"
+            ),
             InlineKeyboardButton(text="✖ Kapat", callback_data="close"),
         ],
     ]
     return buttons
+
 
 def stream_markup(_, chat_id):
     buttons = [
@@ -79,13 +83,9 @@ def stream_markup(_, chat_id):
         ],
         [
             InlineKeyboardButton(
-                text=_["S_B_3"],
-                url=f"https://t.me/{app.username}?startgroup=true"
+                text=_["S_B_3"], url=f"https://t.me/{app.username}?startgroup=true"
             ),
-            InlineKeyboardButton(
-                text=_["CLOSE_BUTTON"],
-                callback_data="close"
-            ),
+            InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close"),
         ],
     ]
     return buttons
@@ -178,10 +178,7 @@ def stream_markup2(_, chat_id):
             InlineKeyboardButton(text="▢", callback_data=f"ADMIN Stop|{chat_id}"),
         ],
         [
-            InlineKeyboardButton(
-                text=_["CLOSEMENU_BUTTON"],
-                callback_data="close"
-            ),
+            InlineKeyboardButton(text=_["CLOSEMENU_BUTTON"], callback_data="close"),
         ],
     ]
     return buttons
