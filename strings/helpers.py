@@ -1,45 +1,164 @@
 HELP_1 = """
-✅ ᴘʟᴀʏ 𝖪𝗈𝗆𝗎𝗍𝗅𝖺𝗋 :
+<b>🎛️ 𝗬𝗢̈𝗡𝗘𝗧𝗜𝗠 𝗠𝗢𝗗𝗨̈𝗟𝗨̈</b>
+<blockquote>𝙂𝙧𝙪𝙥𝙩𝙖 𝙢𝙪̈𝙯𝙞𝙠 𝙮𝙖𝙮𝙞𝙣𝙞𝙣𝙞 𝙮𝙤̈𝙣𝙚𝙩𝙢𝙚𝙠 𝙞𝙘̧𝙞𝙣 𝙠𝙪𝙡𝙡𝙖𝙣𝙞𝙡𝙖𝙣 𝙠𝙤𝙢𝙪𝙩𝙡𝙖𝙧.</blockquote>
 
-» /voynat > 𝖵𝗂𝖽𝖾𝗈 𝗈𝗒𝗇𝖺𝗍 .
-» /oynat > 𝖲𝖺𝗋𝗄𝗂𝗒𝗂 𝗈𝗒𝗇𝖺𝗍 .
+<b>⏸ /duraklat</b>  
+» Çalan müziği duraklatır
 
-» /cvoynat > 𝖵𝗂𝖽𝖾𝗈 𝗈𝗒𝗇𝖺𝗍 .
-» /coynat > 𝖲𝖺𝗋𝗄𝗂𝗒𝗂 𝗈𝗒𝗇𝖺𝗍 .
-» /cdurdur > 𝖲𝖺𝗋𝗄𝗂𝗒𝗂 𝖽𝗎𝗋𝖽𝗎𝗋 .
-» /cdevam > 𝖲𝖺𝗋𝗄𝗂𝗒𝗂 𝗌𝗎𝗋𝖽𝗎𝗋 .
-» /catla > 𝖲𝖺𝗋𝗄𝗂𝗒𝗂 𝖺𝗍𝗅𝖺 .
-» /cson > 𝖲𝖺𝗋𝗄𝗂𝗒𝗂 𝗌𝗈𝗇𝗅𝖺𝗇𝖽𝗂𝗋 .
-» /ckaristir > 𝖲𝖺𝗋𝗄𝗂 𝗅𝗂𝗌𝗍𝖾𝗌𝗂𝗇𝗂 𝗄𝖺𝗋𝗂𝗌𝗍𝗂𝗋 .
-» /ctekrarla > 𝖲𝖺𝗋𝗄𝗂𝗒𝗂 𝗍𝖾𝗄𝗋𝖺𝗋𝗅𝖺 .
-» /cileri > 𝖲𝖺𝗋𝗄𝗂𝗒𝗂 𝗂𝗅𝖾𝗋𝗂 𝗌𝖺𝗋 .
-» /cgeri > 𝖲𝖺𝗋𝗄𝗂𝗒𝗂 𝗀𝖾𝗋𝗂𝗒𝖾 𝗌𝖺𝗋 .
-» /coynatforce > 𝖲ı𝗋𝖺𝗒ı 𝖻𝗈𝗓𝗆𝖺𝖽𝖺𝗇 𝗂𝗌𝗍𝖾𝖽𝗂𝗀‌𝗂𝗇𝗂𝗓 𝖲‌𝖺𝗋𝗄ı𝗒ı 𝗈𝗒𝗇𝖺𝗍ı𝗋 .
-» /cvoynatforce > 𝖲ı𝗋𝖺𝗒ı 𝖻𝗈𝗓𝗆𝖺𝖽𝖺𝗇 𝗂𝗌𝗍𝖾𝖽𝗂𝗀‌𝗂𝗇𝗂𝗓 𝖵𝗂𝖽𝖾𝗈𝗒𝗎 𝗈𝗒𝗇𝖺𝗍ı𝗋 .
+<b>▶ /devam</b>  
+» Duraklatılan müziği devam ettirir
 
-» /voynatforce > 𝖲ı𝗋𝖺𝗒ı 𝖻𝗈𝗓𝗆𝖺𝖽𝖺𝗇 𝗂𝗌𝗍𝖾𝖽𝗂𝗀‌𝗂𝗇𝗂𝗓 𝖵𝗂𝖽𝖾𝗈𝗒𝗎 𝗈𝗒𝗇𝖺𝗍ı𝗋 .
+<b>⏭ /geç</b>  
+» Çalan parçayı atlar
+
+<b>⏹ /bitir</b>  
+» Müziği kapatır ve kuyruğu temizler
+
+<b>📜 /sıra</b>  
+» Şarkı listesini gösterir
+
+<b>🔁 /döngü</b>  
+» Şarkıyı tekrar oynatır
+
+<b>🔀 /karıştır</b>  
+» Şarkı listesini karıştırır
+
+<b>⏩ /ilerisar</b>  
+» Şarkıyı ileri sarar
+
+<b>⏪ /gerisar</b>  
+» Şarkıyı geri sarar
 """
+
 
 HELP_2 = """
-✅ ʏᴏɴᴇᴛɪᴄɪ ᴋᴏᴍᴜᴛʟᴀʀ :
+<b>🔐 𝗬𝗘𝗧𝗞𝗜𝗟𝗜 𝗞𝗨𝗟𝗟𝗔𝗡𝗜𝗖𝗜</b>
 
-» /durdur > 𝖲𝖺𝗋𝗄𝗂𝗒𝗂 𝖽𝗎𝗋𝖽𝗎𝗋 .
-» /devam > 𝖲𝖺𝗋𝗄𝗂𝗒𝗂 𝗌𝗎𝗋𝖽𝗎𝗋 .
-» /atla > 𝖲𝖺𝗋𝗄𝗂𝗒𝗂 𝖺𝗍𝗅𝖺 .
-» /son > 𝖲𝖺𝗋𝗄𝗂𝗒𝗂 𝗌𝗈𝗇𝗅𝖺𝗇𝖽𝗂𝗋 .
-» /karistir > 𝖲𝖺𝗋𝗄𝗂 𝗅𝗂𝗌𝗍𝖾𝗌𝗂𝗇𝗂 𝗄𝖺𝗋𝗂𝗌𝗍𝗂𝗋 .
-» /tekrarla > 𝖲𝖺𝗋𝗄𝗂𝗒𝗂 𝗍𝖾𝗄𝗋𝖺𝗋𝗅𝖺 .
-» /ileri > 𝖲𝖺𝗋𝗄𝗂𝗒𝗂 𝗂𝗅𝖾𝗋𝗂 𝗌𝖺𝗋 .
-» /geri > 𝖲𝖺𝗋𝗄𝗂𝗒𝗂 𝗀𝖾𝗋𝗂𝗒𝖾 𝗌𝖺𝗋 .
-» /oynatforce > 𝖲ı𝗋𝖺𝗒ı 𝖻𝗈𝗓𝗆𝖺𝖽𝖺𝗇 𝗂𝗌𝗍𝖾𝖽𝗂𝗀‌𝗂𝗇𝗂𝗓 𝖲‌𝖺𝗋𝗄ı𝗒ı 𝗈𝗒𝗇𝖺𝗍ı𝗋 .
+<b>➕ /yetkiliekle kullanıcı</b>  
+» Kullanıcıyı yetkili listesine ekler
 
-» /restart > 𝖡𝗈𝗍𝗎 𝖸𝖾𝗇𝗂𝖽𝖾𝗇 𝖡𝖺𝗌‌𝗅𝖺𝗍ı𝗋.
-» /reload > 𝖠𝖽𝗆𝗂𝗇 𝖫𝗂𝗌𝗍𝖾𝗌𝗂𝗇𝗂 𝖦𝗎𝗇𝖼𝖾𝗅𝗅𝖾 .
-» /auth > 𝖪𝗎𝗅𝗅𝖺𝗇ı𝖼ı𝗒𝖺 𝖸𝖾𝗍𝗄𝗂 𝖵𝖾𝗋𝗂𝗋 .
-» /unauth > 𝖪𝗎𝗅𝗅𝖺𝗇ı𝖼ı 𝖸𝖾𝗍𝗄𝗂𝗌𝗂𝗇𝗂 𝖠𝗅ı𝗋 .
-» /authlist > 𝖸𝖾𝗍𝗄𝗂𝗅𝗂 𝖪𝗎𝗅𝗅𝖺𝗇ı𝖼ı𝗅𝖺𝗋ı 𝖦𝗈‌𝗌𝗍𝖾𝗋𝗂𝗋 .
+<b>➖ /yetkilisil kullanıcı</b>  
+» Kullanıcıyı yetkili listesinden çıkarır
 
-~ 𝖭𝗈𝗍 : 𝖠𝗌‌𝖺𝗀‌ı𝖽𝖺𝗄𝗂 𝗄𝗈𝗆𝗎𝗍𝗅𝖺𝗋 𝗌𝖺𝗒𝖾𝗌𝗂𝗇𝖽𝖾 𝗀𝗋𝗎𝖻𝗎𝗇𝗎𝗓𝖽𝖺𝗄𝗂 𝗄𝗎𝗅𝗅𝖺𝗇ı𝖼ı𝗅𝖺𝗋, 𝗒𝗈‌𝗇𝖾𝗍𝗂𝖼𝗂 𝗈𝗅𝗆𝖺𝖽𝖺𝗇 𝖽𝖺 [ 𝗈𝗒𝗇𝖺𝗍, 𝖽𝗎𝗋𝖽𝗎𝗋, 𝖽𝖾𝗏𝖺𝗆, 𝖺𝗍𝗅𝖺, 𝗌𝗈𝗇 𝗏𝖻. ] 𝗄𝗈𝗆𝗎𝗍𝗅𝖺𝗋ı𝗇ı 𝗄𝗎𝗅𝗅𝖺𝗇𝖺𝖻𝗂𝗅𝗂𝗋 !
-[ /auth , /unauth , /authlist ]
+<b>📋 /yetkililer</b>  
+» Yetkili kullanıcı listesini gösterir
 """
 
+
+HELP_3 = """
+<b>🚫 𝗞𝗔𝗥𝗔 𝗟𝗜𝗦𝗧𝗘</b>
+
+<b>⛔ /karaliste id</b>  
+» Sohbeti bot kullanımından engeller
+
+<b>✅ /beyazliste id</b>  
+» Sohbeti tekrar aktif eder
+
+<b>📑 /karalisteler</b>  
+» Engellenen sohbetleri gösterir
+
+<b>👤 /engelle kullanıcı</b>  
+» Kullanıcının bot komutlarını kullanmasını engeller
+
+<b>👤 /engelac kullanıcı</b>  
+» Kullanıcının engelini kaldırır
+
+<b>📋 /engelliler</b>  
+» Engellenen kullanıcıları gösterir
+"""
+
+
+HELP_4 = """
+<b>📢 𝗗𝗨𝗬𝗨𝗥𝗨</b>
+
+<b>📨 /duyuru mesaj</b>  
+» Botun bulunduğu tüm gruplara mesaj gönderir
+
+<b>⚙ Modlar</b>
+
+<code>-sabitle</code> → mesajı sabitler  
+<code>-bildirim</code> → bildirimli sabitler  
+<code>-kullanici</code> → kullanıcıya gönderir  
+
+<b>Örnek:</b>  
+<code>/duyuru -sabitle test mesajı</code>
+"""
+
+
+HELP_5 = """
+<b>⚡ 𝗦𝗜𝗦𝗧𝗘𝗠</b>
+
+<b>🏓 /ping</b>  
+» Bot gecikmesini gösterir
+
+<b>📊 /istatistik</b>  
+» Bot istatistiklerini gösterir
+"""
+
+
+HELP_6 = """
+<b>🎵 𝗠𝗨̈𝗭𝗜𝗞 𝗞𝗢𝗠𝗨𝗧𝗟𝗔𝗥𝗜</b>
+
+<b>▶ /oynat şarkı</b>  
+» Şarkıyı sesli sohbetten oynatır
+
+<b>📺 /videooynat şarkı</b>  
+» Videolu müzik oynatır
+
+<b>⚡ /zorlaoynat</b>  
+» Çalan müziği durdurup yeni müzik başlatır
+
+<b>📡 /kanaloynat</b>  
+» Kanal üzerinden müzik oynatır
+"""
+
+
+HELP_7 = """
+<b>👑 𝗦𝗨𝗗𝗢 𝗬𝗢̈𝗡𝗘𝗧𝗜𝗠𝗜</b>
+
+<b>📜 /loglar</b>  
+» Bot loglarını gösterir
+
+<b>⚙ /bakim</b>  
+» Bakım modunu açar veya kapatır
+
+<b>👤 /sudoeekle</b>  
+» Sudo kullanıcı ekler
+
+<b>❌ /sudosil</b>  
+» Sudo kullanıcı kaldırır
+
+<b>📋 /sudolar</b>  
+» Sudo listesini gösterir
+"""
+
+
+HELP_8 = """
+<b>🎙 𝗔𝗞𝗧𝗜𝗙 𝗬𝗔𝗬𝗜𝗡𝗟𝗔𝗥</b>
+
+<b>🎧 /aktifsohbet</b>  
+» Aktif sesli sohbetleri gösterir
+
+<b>📺 /aktifvideo</b>  
+» Aktif video sohbetleri gösterir
+
+<b>⏹ /otomatikbitir</b>  
+» Kimse dinlemezse yayını kapatır
+"""
+
+
+HELP_9 = """
+<b>🚀 𝗕𝗢𝗧 𝗕𝗔𝗦𝗟𝗔𝗡𝗚𝗜𝗖̧</b>
+
+<b>/başlat</b>  
+» Botu başlatır
+
+<b>/yardım</b>  
+» Yardım menüsünü açar
+
+<b>/yenidenbaşlat</b>  
+» Botu yeniden başlatır
+
+<b>/ayarlar</b>  
+» Grup ayarlarını gösterir
+"""
