@@ -27,12 +27,8 @@ def track_markup(_, videoid, user_id, channel, fplay):
 
 
 def stream_markup_timer(_, chat_id, played, dur):
-    played_sec = time_to_seconds(played) or 0
-    duration_sec = time_to_seconds(dur) or 1
-
-    if duration_sec == 0:
-        duration_sec = 1
-
+    played_sec = time_to_seconds(played)
+    duration_sec = time_to_seconds(dur)
     percentage = (played_sec / duration_sec) * 100
     umm = math.floor(percentage)
 
@@ -60,12 +56,12 @@ def stream_markup_timer(_, chat_id, played, dur):
     buttons = [
         [
             InlineKeyboardButton(
-                text="➕ 𝗕𝗲𝗻𝗶 𝗘𝗸𝗹𝗲",
+                text="➕ 𝗕𝗲𝗻𝗶 𝗘𝗸𝗹𝗲 ",
                 url=f"https://t.me/{app.username}?startgroup=true",
             ),
             InlineKeyboardButton(
                 text="💌 𝗞𝗮𝗻𝗮𝗹",
-                url="https://t.me/The_Team_Kumsal",
+                url=f"https://t.me/The_Team_Kumsal",
             ),
         ],
         [
@@ -92,9 +88,7 @@ def stream_markup(_, chat_id):
             InlineKeyboardButton(text="‣‣I", callback_data=f"ADMIN Skip|{chat_id}"),
             InlineKeyboardButton(text="▢", callback_data=f"ADMIN Stop|{chat_id}"),
         ],
-        [
-            InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")
-        ],
+        [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")],
     ]
     return buttons
 
