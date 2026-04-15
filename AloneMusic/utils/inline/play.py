@@ -1,6 +1,8 @@
-from AloneMusic import app
 import math
+
 from pyrogram.types import InlineKeyboardButton
+
+from AloneMusic import app
 from AloneMusic.utils.formatters import time_to_seconds
 
 
@@ -61,7 +63,7 @@ def stream_markup_timer(_, chat_id, played, dur):
             ),
             InlineKeyboardButton(
                 text="💌 𝗞𝗮𝗻𝗮𝗹",
-                url=f"https://t.me/The_Team_Kumsal",
+                url="https://t.me/The_Team_Kumsal",
             ),
         ],
         [
