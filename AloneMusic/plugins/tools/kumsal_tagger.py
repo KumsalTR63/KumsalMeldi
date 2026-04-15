@@ -1,9 +1,14 @@
 import random
+
 from pyrogram import filters
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, CallbackQuery
-from AloneMusic import app  # Assuming this imports the 'app' instance from AloneMusic
-from config import LOGGER_ID, OWNER_ID  # Configuration for logging group and owner ID
+from pyrogram.types import (CallbackQuery, InlineKeyboardButton,
+                            InlineKeyboardMarkup, Message)
+
+from AloneMusic import \
+    app  # Assuming this imports the 'app' instance from AloneMusic
 from AloneMusic.plugins.tools.oner import *  # Assuming this imports the necessary messages like mani, slapmessage, sarki1, etc.
+from config import (LOGGER_ID,  # Configuration for logging group and owner ID
+                    OWNER_ID)
 
 #  ~~~~~~~~~~~~~~~~ OYUN KOMUTLARI ~~~~~~~~~~~~~~~~
 DICE_EMOJI = {
@@ -12,8 +17,9 @@ DICE_EMOJI = {
     "basket": "🏀",
     "futbol": "⚽",
     "bowling": "🎳",
-    "slot": "🍒"
+    "slot": "🍒",
 }
+
 
 @app.on_message(filters.command(list(DICE_EMOJI.keys()) + ["para", "mani", "saka"]))
 async def games(client, message: Message):
@@ -25,10 +31,12 @@ async def games(client, message: Message):
             emoji=DICE_EMOJI[command],
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton("Tekrar Oyna ♻️", callback_data=command)]]
-            )
+            ),
         )
     elif command == "para":
-        await message.reply("**Yazı 🪙**" if random.randint(0, 1) == 0 else "**Tura 🪙**")
+        await message.reply(
+            "**Yazı 🪙**" if random.randint(0, 1) == 0 else "**Tura 🪙**"
+        )
     elif command == "mani":
         await message.reply_text(random.choice(mani))
     elif command == "saka":
@@ -44,7 +52,7 @@ async def play_again(client, query: CallbackQuery):
         emoji=DICE_EMOJI[command],
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton("Tekrar Oyna ♻️", callback_data=command)]]
-        )
+        ),
     )
 
 
@@ -79,7 +87,7 @@ async def slap(bot, message: Message):
 📍 Grup ID: {message.chat.id}  
 🔗 Grup Link: @{message.chat.username}  
 ⚙️ Kullanılan Modül: Slap
-"""
+""",
     )
 
 
@@ -114,5 +122,5 @@ async def oner(bot, message: Message):
 📍 Grup ID: {message.chat.id}  
 🔗 Grup Link: @{message.chat.username}  
 🎶 Kullanılan Modül: Şarkı Öneri
-"""
+""",
     )
