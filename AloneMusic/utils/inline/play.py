@@ -61,7 +61,7 @@ def stream_markup_timer(_, chat_id, played, dur):
             ),
             InlineKeyboardButton(
                 text="💌 𝗞𝗮𝗻𝗮𝗹",
-                url=f"https://t.me/The_Team_Kumsal",
+                url=f"https://t.me/aceylabots",
             ),
         ],
         [
