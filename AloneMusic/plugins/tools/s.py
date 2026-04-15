@@ -1,10 +1,13 @@
-from pyrogram import filters
-from pyrogram.types import Message
-from AloneMusic import app  # AloneMusic app instance
-from httpx import AsyncClient
 from io import BytesIO
 
+from httpx import AsyncClient
+from pyrogram import filters
+from pyrogram.types import Message
+
+from AloneMusic import app  # AloneMusic app instance
+
 http = AsyncClient()
+
 
 @app.on_message(filters.command("s") & filters.reply)
 async def make_sticker(_, message: Message):
@@ -22,14 +25,16 @@ async def make_sticker(_, message: Message):
         "type": "quote",
         "format": "webp",
         "backgroundColor": "#1e1e1e",
-        "messages": [{
-            "text": text,
-            "author": {
-                "name": replied.from_user.first_name,
-                "id": replied.from_user.id,
-                "username": replied.from_user.username or ""
+        "messages": [
+            {
+                "text": text,
+                "author": {
+                    "name": replied.from_user.first_name,
+                    "id": replied.from_user.id,
+                    "username": replied.from_user.username or "",
+                },
             }
-        }]
+        ],
     }
 
     try:
